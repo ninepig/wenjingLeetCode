@@ -28,4 +28,45 @@ public class LeetCode283 {
             pos++;
         }
     }
+    
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public void moveZeroes(int[] nums) {
+        if(nums==null){
+            return;
+        }
+        int pos = 0;
+        int zeroNum = 0;
+        for(int i = 0 ; i <= nums.length-1;i++){
+        	if(nums[i] != 0){
+        		nums[pos] = nums[i];
+        		pos++;
+        	}else{
+        		zeroNum++;
+        	}
+        }
+        for(int j = pos+1;j<=nums.length-1;j++){
+        	nums[j] = 0;
+        }
+        
+    }
+    
+    
 }
