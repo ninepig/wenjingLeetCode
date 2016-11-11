@@ -34,4 +34,55 @@ public class Leetcode217 {
 	}
 	
 	
+	
+	
+	 public boolean containsDuplicate(int[] nums) {
+	     
+		 if(nums==null||nums.length==0){
+			 return false;
+		 }
+		 HashSet<Integer> thisSet = new HashSet<Integer>();
+		 for(int i = 0 ; i< nums.length;i++){
+			 if(thisSet.contains(nums[i])){
+				 return true;
+			 }else{
+				 thisSet.add(nums[i]);
+			 }
+			 
+		 }
+		 
+		 return false;
+	    }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

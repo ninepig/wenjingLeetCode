@@ -45,8 +45,83 @@ public class LeetCode206 {
 		 head.next = null;
 		 
 		 return reHead;
-		 
-		 
-		 
+		
 	 }
+	 
+	 
+	  public ListNode reverseListIterAgain(ListNode head) {
+	        
+		  if(head == null ){
+			  return null;
+		  }
+		  
+		  ListNode currentNode = head;
+		  //current node 's pre node
+		  ListNode preNode = null;
+		  
+		  while(currentNode!=null){
+			  //create a new head node for the new list and it could be a temp node to store currentNode
+			  ListNode tempNode = currentNode;
+			  // we move current node to next node
+			  currentNode = currentNode.next;
+			  //new head node's next node pointer to current node's pre node
+			  tempNode.next = preNode;
+			  // we change the preNode to currentNode
+			  preNode = tempNode;
+			  
+		  }
+		  //return new head.
+		  return preNode;
+		  
+	    }
+	 
+	 
+
+	  public ListNode reverseListRecurAgain(ListNode head) {
+	        
+		  if(head == null || head.next==null){
+			  return head;
+		  }
+		  
+		  // create a newHead which call function recursive  get the reverse of head's next point.
+		  ListNode newHead = reverseListRecurAgain(head.next);
+		  // head.next.next should be head , draw a picture
+		  head.next.next = head;
+		  //head next go to null
+		  head.next= null;
+		  
+		  return newHead;
+		  
+	    }
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	
+	 
+	 
 }

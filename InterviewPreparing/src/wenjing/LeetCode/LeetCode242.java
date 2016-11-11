@@ -44,4 +44,81 @@ public class LeetCode242 {
         }
         return true;
     }
+    
+    
+    
+    //2016.11.6
+    public boolean isAnagram3(String s, String t) {
+    	//用这种方法没有考虑到 如果s=aa t=bb的情况
+//        if(s==null||t==null){
+//        	return false;
+//        }
+//        if(s.length() !=t.length()){
+//        	return false;
+//        }
+//        int result = 0;
+//        for(int i = 0 ;i<s.length();i++){
+//        	result^= (s.charAt(i)-'a')^(t.charAt(i)-'a'); 
+//        }
+//        
+//        if(result==0){
+//        	return true;
+//        }
+//        return false;
+        
+    	
+    	//用维护int数组的方法
+      if(s==null||t==null){
+    	return false;
+    }
+    if(s.length() !=t.length()){
+    	return false;
+    }
+
+    int[] charNumber = new int[26];
+  
+    char[] charArrayS = s.toCharArray();
+    char[] charArrayT =t.toCharArray();
+    
+    for(char s1:charArrayS){
+    	charNumber[s1-'a']++;
+    }
+    for(char t1: charArrayT){
+    	if(charNumber[t1-'a'] >0){
+    		charNumber[t1-'a']--;  
+		}else{
+			return false;
+		}
+    }
+    return true;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

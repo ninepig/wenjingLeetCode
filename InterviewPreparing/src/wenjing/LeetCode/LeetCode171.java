@@ -26,18 +26,56 @@ For example:
  */
 public class LeetCode171 {
 
-	public int  titleToNumber(String s){
+//	public int  titleToNumber(String s){
+//		
+//		char[] intputTitleArray = s.toCharArray();
+//		int number = 0;
+//		for(char thisChar:intputTitleArray){
+//			//因为第一位的系数我们要考虑到逻辑里，第一位的系数是0+char所代表的系数,得到系数就可以计算下一位的值了。bingo
+//			number = number*26 +(thisChar-'A'+1); 
+//		}
+//		
+//		return number;
+//		
+//	}
+//	
+	
+	
+	public int titleToNumber(String s) {
+        
+		int result = 0;
+		char[] charArray = s.toCharArray();
+		int thisCharValue;
 		
-		char[] intputTitleArray = s.toCharArray();
-		int number = 0;
-		for(char thisChar:intputTitleArray){
-			//因为第一位的系数我们要考虑到逻辑里，第一位的系数是0+char所代表的系数,得到系数就可以计算下一位的值了。bingo
-			number = number*26 +(thisChar-'A'+1); 
+		
+		for(int i = 0 ; i < charArray.length ; i++){
+			thisCharValue = charArray[i]-'A'+1;
+			result = result*26+thisCharValue;
 		}
 		
-		return number;
-		
-	}
+		return result;
+    }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }
