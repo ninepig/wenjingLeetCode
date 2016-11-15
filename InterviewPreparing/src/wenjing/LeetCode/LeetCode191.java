@@ -12,10 +12,7 @@ public class LeetCode191 {
         	temp = (n>>i)&1;
         	if(temp == 1)
         		counter++;
-        	
-        	
         }
-        
         return counter;
         
     }
