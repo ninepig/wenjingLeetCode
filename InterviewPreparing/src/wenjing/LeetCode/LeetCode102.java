@@ -1,11 +1,10 @@
-package wenjing.tree;
+package wenjing.LeetCode;
 
-import wenjing.LeetCode.TreeNode;
-
-public class LevelTravleBottmUp107 {
-
-    public List<List<Integer>> levelOrderBottom(TreeNode root) {
-
+/**
+ * Created by yamengwenjing on 2016-11-16.
+ */
+public class LeetCode102 {
+    public List<List<Integer>> levelOrder(TreeNode root) {
         if(root ==null){
             return new ArrayList<>();
         }
@@ -33,16 +32,13 @@ public class LevelTravleBottmUp107 {
                 }
 
             }
-            resultList.add(0,thisLevelResult);
+            resultList.add(thisLevelResult);
 
 
         }
 
 
         return resultList;
-
-
-
 
     }
 }

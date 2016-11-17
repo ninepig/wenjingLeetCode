@@ -2,10 +2,16 @@ package wenjing.tree;
 
 import wenjing.LeetCode.TreeNode;
 
-public class LevelTravleBottmUp107 {
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
-    public List<List<Integer>> levelOrderBottom(TreeNode root) {
-
+/**
+ * Created by yamengwenjing on 2016-11-16.
+ * similar to 107 ， 107 bottom up，this one top down
+ */
+public class levelTravelTopDown {
+    public List<List<Integer>> levelOrder(TreeNode root) {
         if(root ==null){
             return new ArrayList<>();
         }
@@ -33,16 +39,13 @@ public class LevelTravleBottmUp107 {
                 }
 
             }
-            resultList.add(0,thisLevelResult);
+            resultList.add(thisLevelResult);
 
 
         }
 
 
         return resultList;
-
-
-
 
     }
 }
