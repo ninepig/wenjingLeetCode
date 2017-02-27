@@ -3,8 +3,8 @@ package wenjing.interviewTree;
 import java.util.LinkedList;
 
 /*
- * ¼ÆËã¶þ²æÊ÷µÄ×î´óÉî¶È£¬µÝ¹éµÄ·½·¨£¬·µ»Ø×óÓÒÊ÷×î´óµÄ+1
- * ·ÇµÝ¹é£¬BFSµÄ·½·¨£¬ÀûÓÃqueueÎ¬»¤ËùÓÐnode
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½Ý¹ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½+1
+ * ï¿½ÇµÝ¹é£¬BFSï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½queueÎ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½node
  * 
  */
 public class MaxDepthOfBinaryTree {
@@ -13,16 +13,16 @@ public class MaxDepthOfBinaryTree {
 		if(tree == null){
 			return 0;
 		}
-//		if(tree.leftChild == null){
-//			
-//			return RecursiveSolutions(tree.rightChild)+1;
-//			
-//		}
-//		if(tree.rightChild == null){
-//			
-//			return RecursiveSolutions(tree.leftChild)+1;
-//			
-//		}
+		if(tree.leftChild == null){
+
+			return RecursiveSolutions(tree.rightChild)+1;
+
+		}
+		if(tree.rightChild == null){
+
+			return RecursiveSolutions(tree.leftChild)+1;
+
+		}
 		
 		return Math.max(RecursiveSolutions(tree.rightChild), RecursiveSolutions(tree.leftChild))+1;
 		

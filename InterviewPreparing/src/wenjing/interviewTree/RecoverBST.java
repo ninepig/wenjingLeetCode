@@ -1,58 +1,58 @@
-package wenjing.interviewTree;
-
-import java.util.ArrayList;
-
-/*
- * ÀÎ¼ÇbstµÄÔ­Ôò£¬ÀûÓÃÒ»¸öÖÐÐò±éÀú£¬¿ÉÒÔ×ßÏÂÕû¿ÃÊ÷£¬×óÐ¡ÓÚÖÐÐ¡ÓÚÓÒ£¬
- * Èç¹ûÓÐÁ½¸öµã·¢ÉúÁË½»»»£¬ÓÐÁ½ÖÖ¿ÉÄÜ£¬Èç¹ûÊÇÏàÁÚµÄÁ½¸öµã£¬±ÈÈç1234567 --- 1235467 Ö±½Ó½»»»ÕâÁ½¸öµã¾Í¿ÉÒÔÁË
- * Èç¹ûÊÇ1234567---5234167 ÔòÐèÒª½»»»µÄÊÇµÚÒ»×é52Î¥·¨ÊýµÄµÚÒ»¸ö ºÍµÚ¶þ×é42Î¥·¨ÊýµÄµÚ¶þ¸ö
- * ¾ßÌåµÄ¿´´úÂë£¬·Ç³£ÓÅÑÅ
- */
-public class RecoverBST {
-
-	public void solution(BinaryNode<T> root){
-		
-		ArrayList<Integer> preNode = new ArrayList<>();
-		ArrayList<Integer> resultNode = new ArrayList<>();
-		preNode.add(null);
-		
-		help(root,preNode,resultNode);
-					
-		//ÕÒµ½µÄÁ½¸ö´íÎóµÄµã£¬½»»»
-		if(resultNode.size() != 0){
-			int temp = resultNode.get(0);
-			resultNode.set(0, resultNode.get(1));
-			resultNode.set(1, temp);
-		}
-		
-		
-	}
-
-	private void help(BinaryNode<T> root, ArrayList<Integer> preNode, ArrayList<Integer> resultNode) {
-		// TODO Auto-generated method stub
-		
-		if(root == null){
-			return ;
-		}
-		help(root.leftChild,preNode,resultNode);
-		
-		//Î¥·¨ÏÖÏó
-		if(preNode.get(0)!=null && preNode.get(0)>root.getData()){
-			//Èç¹ûÊÇµÚÒ»¸öÎ¥·¨µã£¬¾ÍÊÇÓÐ¿ÉÄÜÊÇµÚÒ»ÖÖÇé¿öÁ¬ÐøµÄµÚÒ»¸öµã
-			if(resultNode.size()==0){
-				resultNode.add(preNode.get(0));
-				resultNode.add(root.getData());
-			}//Èç¹û²»ÊÇµÚÒ»¸öÎ¥·¨µã£¬Ôò¼ÓÈëµÚ¶þ¸öÎ¥·¨µãµÄºóÃæµÚ¶þ¸ö=[=]bg]ÔªËØ¼´¿É
-			else{
-				resultNode.set(1, root.getData());
-			}
-		}
-		//°ÑÖ®Ç°µÄ½áµãÉèÎªµ±Ç°µÄroot bstµÄ»ù±¾²Ù×÷
-		preNode.set(0, root.getData());
-		help(root.rightChild,preNode,resultNode);
-		
-	}
-	
-	
-	
-}
+//package wenjing.interviewTree;
+//
+//import java.util.ArrayList;
+//
+///*
+// * ï¿½Î¼ï¿½bstï¿½ï¿½Ô­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½Ò£ï¿½
+// * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã·¢ï¿½ï¿½ï¿½Ë½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¿ï¿½ï¿½Ü£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã£¬ï¿½ï¿½ï¿½ï¿½1234567 --- 1235467 Ö±ï¿½Ó½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ï¿½ï¿½
+// * ï¿½ï¿½ï¿½ï¿½ï¿½1234567---5234167 ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Çµï¿½Ò»ï¿½ï¿½52Î¥ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½Ò»ï¿½ï¿½ ï¿½ÍµÚ¶ï¿½ï¿½ï¿½42Î¥ï¿½ï¿½ï¿½ï¿½ï¿½ÄµÚ¶ï¿½ï¿½ï¿½
+// * ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ë£¬ï¿½Ç³ï¿½ï¿½ï¿½ï¿½ï¿½
+// */
+//public class RecoverBST {
+//
+//	public void solution(BinaryNode<T> root){
+//
+//		ArrayList<Integer> preNode = new ArrayList<>();
+//		ArrayList<Integer> resultNode = new ArrayList<>();
+//		preNode.add(null);
+//
+//		help(root,preNode,resultNode);
+//
+//		//ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµã£¬ï¿½ï¿½ï¿½ï¿½
+//		if(resultNode.size() != 0){
+//			int temp = resultNode.get(0);
+//			resultNode.set(0, resultNode.get(1));
+//			resultNode.set(1, temp);
+//		}
+//
+//
+//	}
+//
+//	private void help(BinaryNode<T> root, ArrayList<Integer> preNode, ArrayList<Integer> resultNode) {
+//		// TODO Auto-generated method stub
+//
+//		if(root == null){
+//			return ;
+//		}
+//		help(root.leftChild,preNode,resultNode);
+//
+//		//Î¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//		if(preNode.get(0)!=null && preNode.get(0)>root.getData()){
+//			//ï¿½ï¿½ï¿½ï¿½Çµï¿½Ò»ï¿½ï¿½Î¥ï¿½ï¿½ï¿½ã£¬ï¿½ï¿½ï¿½ï¿½ï¿½Ð¿ï¿½ï¿½ï¿½ï¿½Çµï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½Ò»ï¿½ï¿½ï¿½ï¿½
+//			if(resultNode.size()==0){
+//				resultNode.add(preNode.get(0));
+//				resultNode.add(root.getData());
+//			}//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Çµï¿½Ò»ï¿½ï¿½Î¥ï¿½ï¿½ï¿½ã£¬ï¿½ï¿½ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½Î¥ï¿½ï¿½ï¿½ï¿½Äºï¿½ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½=[=]bg]Ôªï¿½Ø¼ï¿½ï¿½ï¿½
+//			else{
+//				resultNode.set(1, root.getData());
+//			}
+//		}
+//		//ï¿½ï¿½Ö®Ç°ï¿½Ä½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Ç°ï¿½ï¿½root bstï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//		preNode.set(0, root.getData());
+//		help(root.rightChild,preNode,resultNode);
+//
+//	}
+//
+//
+//
+//}

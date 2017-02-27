@@ -1,51 +1,51 @@
-package wenjing.interviewTree;
-
-
-public class SortedListToBinarySearchTree {
-
-	
-	/*
-	 * ÓÃ¿ìÂýÖ¸ÕëµÄ·½·¨ÕÒµ½Á´±íµÄÖÐ¼äµã£¬¶ÔÖÐ¼äµã×ó²àµÄÁ´±í½øÐÐµÝ¹é£¬¶ÔÓÒ²àÍ¬Ñù¡£ÒªÃ÷°×bstµÄÔ­Ôò¾ÍÊÇÊý×é/Á´±íµÄÖÐ¼ä½ÚµãÊÇÊ÷µÄrootNode
-	 */
-	public BinaryNode<T> sortedListToBST(ListNode head){
-		// Èç¹ûÁ´±íÎª¿Õ £¬·µ»Ø
-		if(head == null){
-			return null;
-		}
-		//Èç¹ûÖ»Ê£ÏÂµ¥¶ÀµÄÁ´±íÁË£¬¼´×î×ó±ß»òÕß×îÓÒ±ß£¬Ö±½Ó·µ»ØÕâ¸ö½Úµã£¬×÷ÎªÊ÷½Úµã
-		if(head.next == null){
-			return BinaryNode<T>(head.NodeValue);
-		}
-		
-		ListNode fast,pre,slow;
-		fast  = head;
-		slow =head;
-		pre = null;
-		while(fast!=null&&fast.next!=null){
-			fast = fast.next.next;
-			pre = slow;
-			slow = slow.next;
-		}
-		
-		ListNode rootNode = slow;
-		// ÂýÖ¸ÕëÖ¸ÏòµÄÊÇÖÐ¼ä½Úµã£¬preÊÇÂýÖ¸ÕëÖ®Ç°µÄÄÇ¸ö½Úµã
-		BinaryNode<T> root  = new BinaryNode<>(rootNode.NodeValue);
-		//¸ùµÄ×óÊ÷¸ù½ÚµãÓÃµÝ¹é¼ÆËã³ö
-		if(pre !=null){
-			
-			pre.next = null;
-			root.leftChild = sortedListToBST(head);			
-		}
-
-		ListNode rootRight = rootNode.next;
-		rootNode.next =null;
-		
-		root.rightChild = sortedListToBST(rootRight); 
-		
-		return root;
-		
-	}
-	
-	
-	
-}
+//package wenjing.interviewTree;
+//
+//
+//public class SortedListToBinarySearchTree {
+//
+//
+//	/*
+//	 * ï¿½Ã¿ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½ã£¬ï¿½ï¿½ï¿½Ð¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÝ¹é£¬ï¿½ï¿½ï¿½Ò²ï¿½Í¬ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½bstï¿½ï¿½Ô­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½rootNode
+//	 */
+//	public BinaryNode<T> sortedListToBST(ListNode head){
+//		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//		if(head == null){
+//			return null;
+//		}
+//		//ï¿½ï¿½ï¿½Ö»Ê£ï¿½Âµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò±ß£ï¿½Ö±ï¿½Ó·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµã£¬ï¿½ï¿½Îªï¿½ï¿½ï¿½Úµï¿½
+//		if(head.next == null){
+//			return BinaryNode<T>(head.NodeValue);
+//		}
+//
+//		ListNode fast,pre,slow;
+//		fast  = head;
+//		slow =head;
+//		pre = null;
+//		while(fast!=null&&fast.next!=null){
+//			fast = fast.next.next;
+//			pre = slow;
+//			slow = slow.next;
+//		}
+//
+//		ListNode rootNode = slow;
+//		// ï¿½ï¿½Ö¸ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½Úµã£¬preï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½Ö®Ç°ï¿½ï¿½ï¿½Ç¸ï¿½ï¿½Úµï¿½
+//		BinaryNode<T> root  = new BinaryNode<>(rootNode.NodeValue);
+//		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ÃµÝ¹ï¿½ï¿½ï¿½ï¿½ï¿½
+//		if(pre !=null){
+//
+//			pre.next = null;
+//			root.leftChild = sortedListToBST(head);
+//		}
+//
+//		ListNode rootRight = rootNode.next;
+//		rootNode.next =null;
+//
+//		root.rightChild = sortedListToBST(rootRight);
+//
+//		return root;
+//
+//	}
+//
+//
+//
+//}

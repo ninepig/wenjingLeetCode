@@ -1,69 +1,69 @@
-package wenjing.interviewTree;
-
-import java.util.LinkedList;
-import java.util.Queue;
-
-public class LeetCode226 {
-	
-	// my answer
-	 public TreeNode invertTree(TreeNode root) {
-	     
-		 if(root == null ){
-			 return null;
-		 }
-			 
-			 TreeNode tempTreeNode = root.left;
-			 root.left = root.right;
-			 root.right = tempTreeNode;
-			
-			 
-			 invertTree(root.left);
-			 invertTree(root.right);
-		
-		
-			 return root;
-		 
-		 
-	   }
-
-//	 LeetCode simple answer
-	 
-//	  if(root==null)
+//package wenjing.interviewTree;
+//
+//import java.util.LinkedList;
+//import java.util.Queue;
+//
+//public class LeetCode226 {
+//
+//	// my answer
+//	 public TreeNode invertTree(TreeNode root) {
+//
+//		 if(root == null ){
+//			 return null;
+//		 }
+//
+//			 TreeNode tempTreeNode = root.left;
+//			 root.left = root.right;
+//			 root.right = tempTreeNode;
+//
+//
+//			 invertTree(root.left);
+//			 invertTree(root.right);
+//
+//
+//			 return root;
+//
+//
+//	   }
+//
+////	 LeetCode simple answer
+//
+////	  if(root==null)
+////	        return root;
+////
+////	    TreeNode tmpNode = root.left;
+////	    root.left = invertTree(root.right);
+////	    root.right = invertTree(tmpNode);
+////
+////	    return root;
+//
+//
+//	 //level traversal no recursive
+//	 public static TreeNode invertTree1(TreeNode root)
+//	 {
+//	       if(root == null)
+//	        {
+//	            return null;
+//	        }
+//	        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+//	        //ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+//	        queue.offer(root);
+//	        while(!queue.isEmpty())
+//	        {
+//	           //ï¿½ï¿½È¡ï¿½ï¿½ï¿½Æ³ï¿½Ôªï¿½ï¿½
+//	            TreeNode node = queue.poll();
+//	            TreeNode left = node.left;
+//	            node.left = node.right;
+//	            node.right = left;
+//	            if(node.left != null)
+//	            {
+//	                queue.offer(node.left);
+//	            }
+//	            if(node.right != null)
+//	            {
+//	                queue.offer(node.right);
+//	            }
+//	        }
 //	        return root;
-//
-//	    TreeNode tmpNode = root.left;
-//	    root.left = invertTree(root.right);
-//	    root.right = invertTree(tmpNode);
-//
-//	    return root;
-
-	 
-	 //level traversal no recursive 
-	 public static TreeNode invertTree1(TreeNode root)  
-	 {  
-	       if(root == null)  
-	        {  
-	            return null;  
-	        }  
-	        Queue<TreeNode> queue = new LinkedList<TreeNode>();  
-	        //ÏòÁÐ¶ÓÖÐÌí¼ÓÔªËØ  
-	        queue.offer(root);  
-	        while(!queue.isEmpty())  
-	        {  
-	           //»ñÈ¡²¢ÒÆ³öÔªËØ  
-	            TreeNode node = queue.poll();  
-	            TreeNode left = node.left;  
-	            node.left = node.right;  
-	            node.right = left;  
-	            if(node.left != null)   
-	            {  
-	                queue.offer(node.left);  
-	            }  
-	            if(node.right != null)   
-	            {  
-	                queue.offer(node.right);  
-	            }  
-	        }  
-	        return root;  
-	 }  
-}
+//	 }
+//}

@@ -1,62 +1,62 @@
-package wenjing.LeetCode;
-
-import java.util.HashMap;
-
-/*
- * You are given a binary tree in which each node contains an integer value.
-
-Find the number of paths that sum to a given value.
-
-The path does not need to start or end at the root or a leaf, but it must go downwards (traveling only from parent nodes to child nodes).
-
-The tree has no more than 1,000 nodes and the values are in the range -1,000,000 to 1,000,000.
-
-binarytree
-
-Õâ¸öÌâÕæ²»»á£¬´óÉñµÄ½â·¨£¬Ì«Å£±ÆÁË£¬ÓÃµÄhashmap£¨ÀàËÆtwo sum£©£¬key ÊÇ sumaryµÄÖµ£¬value ÊÇ³öÏÖµÄ´ÎÊý
-ËùÓÐµÝ¹éÊ÷µÄ½áÊøÌõ¼þ¶¼ÊÇroot ==null return xxx
-
- */
-public class LeetCode437 {
-		//Õâ¸ö·½·¨ÓÐµã¿´²»¶®
-	  public int pathSum(TreeNode root, int sum) {
-	        HashMap<Integer, Integer> preSum = new HashMap();
-	        preSum.put(0,1);
-	        return helper(root, 0, sum, preSum);
-	    }
-	    
-	    public int helper(TreeNode root, int sum, int target, HashMap<Integer, Integer> preSum) {
-	        if (root == null) {
-	            return 0;
-	        }
-	        
-	        sum += root.val;
-	        int res = preSum.getOrDefault(sum - target, 0);
-
-	        preSum.put(sum, preSum.getOrDefault(sum, 0) + 1);
-	        
-	        res += helper(root.left, sum, target, preSum) + helper(root.right, sum, target, preSum);
-	        //ÒòÎª¶ÔÓÚµ±Ç°½Úµã ÓÐ×óÂ·¾¶£¬ÓÒÂ·£¬ËùÒÔÒª¼õÈ¥µ±Ç°½Úµã
-	        preSum.put(sum, preSum.get(sum) - 1);
-
-	        return res;
-	    }
-	    
-	    //Õâ¸öµÝ¹éÎÒ»¹¿´µÃ¶®µã¡£¡££¬²»¶ÏµÝ¹éµ÷ÓÃ×óÊ÷£¬ÓÒÊ÷¡££¬sum¼õÈ¥µ±Ç°½ÚµãµÄÖµ¡£
-	    public int pathSum(TreeNode root, int sum) {
-	        if(root == null)
-	            return 0;
-	        return findPath(root, sum) + pathSum(root.left, sum) + pathSum(root.right, sum);
-	    }
-	    
-	    public int findPath(TreeNode root, int sum){
-	        int res = 0;
-	        if(root == null)
-	            return res;
-	        if(sum == root.val)
-	            res++;
-	        res += findPath(root.left, sum - root.val);
-	        res += findPath(root.right, sum - root.val);
-	        return res;
-	    }
-}
+//package wenjing.LeetCode;
+//
+//import java.util.HashMap;
+//
+///*
+// * You are given a binary tree in which each node contains an integer value.
+//
+//Find the number of paths that sum to a given value.
+//
+//The path does not need to start or end at the root or a leaf, but it must go downwards (traveling only from parent nodes to child nodes).
+//
+//The tree has no more than 1,000 nodes and the values are in the range -1,000,000 to 1,000,000.
+//
+//binarytree
+//
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ²»ï¿½á£¬ï¿½ï¿½ï¿½ï¿½Ä½â·¨ï¿½ï¿½Ì«Å£ï¿½ï¿½ï¿½Ë£ï¿½ï¿½Ãµï¿½hashmapï¿½ï¿½ï¿½ï¿½ï¿½ï¿½two sumï¿½ï¿½ï¿½ï¿½key ï¿½ï¿½ sumaryï¿½ï¿½Öµï¿½ï¿½value ï¿½Ç³ï¿½ï¿½ÖµÄ´ï¿½ï¿½ï¿½
+//ï¿½ï¿½ï¿½ÐµÝ¹ï¿½ï¿½ï¿½ï¿½Ä½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½root ==null return xxx
+//
+// */
+//public class LeetCode437 {
+//		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµã¿´ï¿½ï¿½ï¿½ï¿½
+//	  public int pathSum(TreeNode root, int sum) {
+//	        HashMap<Integer, Integer> preSum = new HashMap();
+//	        preSum.put(0,1);
+//	        return helper(root, 0, sum, preSum);
+//	    }
+//
+//	    public int helper(TreeNode root, int sum, int target, HashMap<Integer, Integer> preSum) {
+//	        if (root == null) {
+//	            return 0;
+//	        }
+//
+//	        sum += root.val;
+//	        int res = preSum.getOrDefault(sum - target, 0);
+//
+//	        preSum.put(sum, preSum.getOrDefault(sum, 0) + 1);
+//
+//	        res += helper(root.left, sum, target, preSum) + helper(root.right, sum, target, preSum);
+//	        //ï¿½ï¿½Îªï¿½ï¿½ï¿½Úµï¿½Ç°ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½È¥ï¿½ï¿½Ç°ï¿½Úµï¿½
+//	        preSum.put(sum, preSum.get(sum) - 1);
+//
+//	        return res;
+//	    }
+//
+//	    //ï¿½ï¿½ï¿½ï¿½Ý¹ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ã¡£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÏµÝ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sumï¿½ï¿½È¥ï¿½ï¿½Ç°ï¿½Úµï¿½ï¿½Öµï¿½ï¿½
+//	    public int pathSum(TreeNode root, int sum) {
+//	        if(root == null)
+//	            return 0;
+//	        return findPath(root, sum) + pathSum(root.left, sum) + pathSum(root.right, sum);
+//	    }
+//
+//	    public int findPath(TreeNode root, int sum){
+//	        int res = 0;
+//	        if(root == null)
+//	            return res;
+//	        if(sum == root.val)
+//	            res++;
+//	        res += findPath(root.left, sum - root.val);
+//	        res += findPath(root.right, sum - root.val);
+//	        return res;
+//	    }
+//}

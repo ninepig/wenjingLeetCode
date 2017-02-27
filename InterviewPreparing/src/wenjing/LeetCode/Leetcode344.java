@@ -1,76 +1,76 @@
-package wenjing.LeetCode;
-/*
- * Given s = "hello", return "olleh".
- * Õâ¸öÌâºÜ¼òµ¥¡£µ«ÊÇÐ§ÂÊºÜµÍ
- * µ«ÊÇÑ§µ½ÁËÓÃÒì»ò½»»»×Ö·û£¡Ì«Å£±ÆÁË
- * 
- * 
- * 
- * ½»»»a£¬bÁ½ÖµµÄ·½·¨£º
-                    a = a^b;
-                    b = a^b;
-                    a = a^b;
-ºóÀ´ÏëÏë£¬ÕæÊÇÌ«ÉñÆæÁË£¡ÆäÊµ£¬ÎÒÃÇÊ×ÏÈÖªµÀ£¬¶ÔÓÚÈÎÒâµÄxÂú×ã£º
-                               x^x == 0;
-                               x^0 == x;
-ÄÇÃ´ÉÏÃæµÄÊ½×ÓÊÂÊµÉÏÊÇÀûÓÃÁËÈçÉÏµÄ¹æÔò£¬Ê×ÏÈÓÃa±£´æÁËa^bµÄ Öµ£¬ÔÙÓÃb = a ^ b = (a^b)^b=a^b^b=a^(b^b)=a^0=a£¬ÕâÑù¾Í³É¹¦µÄÊµÏÖÁËb = a£»
-½Ó×ÅÓÖÓÃa = a^b = (a^b)^b£¨µÚÒ»¸öb»¹ÊÇÔ­À´µÄb£¬¶øµÚ¶þ¸öbÒÑ¾­ÊÇaµÄÖµ£¬ÒòÎªÇ°ÃæÒÑ¾­ÊµÏÖÁË½»»»£©= (a^b)^a = a^a^b = 0^b = b£¬ÕâÑù¾ÍÊµÏÖÁËa = b£»
-ÓÚÊÇ£¬¾Í³É¹¦µÄÊµÏÖÁËa£¬bÁ½¸öÖµµÄ½»»»
- */
-public class Leetcode344 {
-	 public String reverseString(String s) {
-	        
-//		 if(s==null){
-//			 return null;
+//package wenjing.LeetCode;
+///*
+// * Given s = "hello", return "olleh".
+// * ï¿½ï¿½ï¿½ï¿½ï¿½Ü¼òµ¥¡ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ÊºÜµï¿½
+// * ï¿½ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ò½»»ï¿½ï¿½Ö·ï¿½ï¿½ï¿½Ì«Å£ï¿½ï¿½ï¿½ï¿½
+// *
+// *
+// *
+// * ï¿½ï¿½ï¿½ï¿½aï¿½ï¿½bï¿½ï¿½Öµï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½
+//                    a = a^b;
+//                    b = a^b;
+//                    a = a^b;
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë£¬ï¿½ï¿½ï¿½ï¿½Ì«ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ã£º
+//                               x^x == 0;
+//                               x^0 == x;
+//ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÏµÄ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½a^bï¿½ï¿½ Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½b = a ^ b = (a^b)^b=a^b^b=a^(b^b)=a^0=aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í³É¹ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½b = aï¿½ï¿½
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½a = a^b = (a^b)^bï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½Ô­ï¿½ï¿½ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½bï¿½Ñ¾ï¿½ï¿½ï¿½aï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ÎªÇ°ï¿½ï¿½ï¿½Ñ¾ï¿½Êµï¿½ï¿½ï¿½Ë½ï¿½ï¿½ï¿½ï¿½ï¿½= (a^b)^a = a^a^b = 0^b = bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½a = bï¿½ï¿½
+//ï¿½ï¿½ï¿½Ç£ï¿½ï¿½Í³É¹ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½aï¿½ï¿½bï¿½ï¿½ï¿½ï¿½Öµï¿½Ä½ï¿½ï¿½ï¿½
+// */
+//public class Leetcode344 {
+//	 public String reverseString(String s) {
+//
+////		 if(s==null){
+////			 return null;
+////		 }
+////
+////		 //trick ï¿½ÄµØ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½Îªï¿½Õ£ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Ø¿ï¿½
+////		 if(s==""){
+////			 return "";
+////		 }
+//		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½
+//		 if(s==null||s==""){
+//			 return s;
 //		 }
-//		 
-//		 //trick µÄµØ·½£¬Èç¹û×Ö·û´®Îª¿Õ£¬ÔòÒª·µ»Ø¿Õ
-//		 if(s==""){
-//			 return "";
+//
+//		 StringBuffer resultString = new StringBuffer();
+//		 int StringLength = s.length();
+//
+//		 for(int i=StringLength-1;i>=0;i--){
+//			 resultString.append(s.charAt(i));
 //		 }
-		//ÓÃÕâÖÖÐÎÊ½¸üºÃ
-		 if(s==null||s==""){
-			 return s;
-		 }
-		 
-		 StringBuffer resultString = new StringBuffer();
-		 int StringLength = s.length();
-		 
-		 for(int i=StringLength-1;i>=0;i--){
-			 resultString.append(s.charAt(i));
-		 }
-		 
-		 return resultString.toString();
-		 
-	    }
-	 //ÉÏÃæÒ»ÖÖÌ«·ÑÊ±¼äÁË£¬ÓÃÁ½¸öpointer¸üºÃ£¬ÒòÎªÖ»ÒªÇ°ºó»»¾Í¿ÉÒÔÁË, Ç°ºó»¥»»
-	 public String reverseString(String s) {
-	        
-//		 if(s==null){
-//			 return null;
+//
+//		 return resultString.toString();
+//
+//	    }
+//	 //ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ì«ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½pointerï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½ÎªÖ»ÒªÇ°ï¿½ó»»¾Í¿ï¿½ï¿½ï¿½ï¿½ï¿½, Ç°ï¿½ó»¥»ï¿½
+//	 public String reverseString(String s) {
+//
+////		 if(s==null){
+////			 return null;
+////		 }
+////
+////		 //trick ï¿½ÄµØ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½Îªï¿½Õ£ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Ø¿ï¿½
+////		 if(s==""){
+////			 return "";
+////		 }
+//		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½
+//		 if(s==null||s==""){
+//			 return s;
 //		 }
-//		 
-//		 //trick µÄµØ·½£¬Èç¹û×Ö·û´®Îª¿Õ£¬ÔòÒª·µ»Ø¿Õ
-//		 if(s==""){
-//			 return "";
+//		 char[] charList = s.toCharArray();
+//		 int listLength = charList.length;
+//
+//		 for(int i = 0; i<=(listLength-1)/2;i++){
+//			 char temp = charList[i];
+//			 charList[i] = charList[listLength-i-1];
+//			 charList[listLength-i-1]=temp;
 //		 }
-		//ÓÃÕâÖÖÐÎÊ½¸üºÃ
-		 if(s==null||s==""){
-			 return s;
-		 }
-		 char[] charList = s.toCharArray();
-		 int listLength = charList.length;
-		
-		 for(int i = 0; i<=(listLength-1)/2;i++){
-			 char temp = charList[i];
-			 charList[i] = charList[listLength-i-1];
-			 charList[listLength-i-1]=temp;
-		 }
-		 
-		 
-		 return charList.toString();
-		 
-	    }
-	 
-	
-}
+//
+//
+//		 return charList.toString();
+//
+//	    }
+//
+//
+//}

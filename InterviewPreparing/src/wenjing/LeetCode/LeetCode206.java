@@ -14,13 +14,13 @@ public class LeetCode206 {
 		  ListNode rePreHeadNode = null;
 		  while(currentNode!= null){
 			  
-			  // ±£´æÒ»¸öµ±Ç°½ÚµãµÄÒýÓÃ£¬×÷ÎªÐÂµÄÁ´±íµÄÐÂµÄÍ·
+			  // ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ç°ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½Îªï¿½Âµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½Í·
 			  ListNode preNode = currentNode;
-			  // Á´±íÏòºóÒÆ¶¯
+			  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½
 			  currentNode = currentNode.next ;
-			  //ÐÂµÄÁ´±íµÄÍ·½áµãµÄnext ÊÇÖ®Ç°µÄÍ·½áµã
+			  //ï¿½Âµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½next ï¿½ï¿½Ö®Ç°ï¿½ï¿½Í·ï¿½ï¿½ï¿½
 			  preNode.next= rePreHeadNode;
-			  //°ÑÐÂµÄÍ·½áµã¸øÐÂÁ´±íÍ·½áµãµÄÒýÓÃ
+			  //ï¿½ï¿½ï¿½Âµï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			  rePreHeadNode = preNode;
 	
 			  
@@ -31,7 +31,7 @@ public class LeetCode206 {
 	
 	 }
 	
-	 //µÝ¹éµÄ·½·¨·Ç³£ÓÅÃÀ¡£ A--B--C--D 
+	 //ï¿½Ý¹ï¿½Ä·ï¿½ï¿½ï¿½ï¿½Ç³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ A--B--C--D 
 	 //D--C--B 
 	 // B IS head.next
 	 
@@ -56,17 +56,17 @@ public class LeetCode206 {
 		  }
 		  
 		  ListNode currentNode = head;
-		  //current node 's pre node
+
 		  ListNode preNode = null;
 		  
 		  while(currentNode!=null){
-			  //create a new head node for the new list and it could be a temp node to store currentNode
+
 			  ListNode tempNode = currentNode;
-			  // we move current node to next node
+
 			  currentNode = currentNode.next;
-			  //new head node's next node pointer to current node's pre node
+
 			  tempNode.next = preNode;
-			  // we change the preNode to currentNode
+
 			  preNode = tempNode;
 			  
 		  }

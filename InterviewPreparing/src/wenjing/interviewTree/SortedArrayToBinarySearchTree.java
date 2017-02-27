@@ -1,37 +1,37 @@
-package wenjing.interviewTree;
-
-/*
- * ÓÃµÄÊÇcode ganker´óÉñµÄ·½·¨£¬°ÑÊý×éµÄÖÐ¼äµã£¬µ±×öbinarytreeµÄ¸ù½Úµã£¬È»ºó×ó±ßµÄ×ÓÊý×éµÄÖÐ¼äµãÊÇ×ó±ß×ÓÊ÷µÄÖÐ¼äµã£¬ÓÒ±ßÒ²ÊÇÈç´Ë£¬µÝ¹éµÄ·½·¨¾Í¿ÉÒÔÁË¡£
- * ÒòÎªbinarysearchtree ¶ÔÓÚsortedµÄÊý×é£¬ÖÐ¼äµã¾ÍÊÇtreeµÄ¸ù½Úµã¡£
- */
-public class SortedArrayToBinarySearchTree {
-
-	public BinaryNode<T> help(int[] sortedArray, int leftSide, int rightSide){
-		
-		if(leftSide>rightSide){
-		return null;
-		} 
-		
-		int middlePoint = (leftSide+rightSide)/2;
-		//ÒÔÕâ¸ömiddlepointµÄvalue ´´½¨root
-		BinaryNode<T> rootNode = new BinaryNode<T>(sortedArray[middlePoint]);
-		rootNode.leftChild = help(sortedArray,0,middlePoint);
-		rootNode.rightChild = help(sortedArray,middlePoint+1,rightSide);
-		
-		return rootNode;
-	}
-	
-	public BinaryNode<T> sortedMethod(int[] sortedArray){
-		
-		BinaryNode<T> rootNode;
-		
-		if(sortedArray == null || sortedArray.length ==0){
-			return null;
-		}
-		rootNode = help(sortedArray,0,sortedArray.length-1);
-		return rootNode;
-	}
-	
-	
-	
-}
+//package wenjing.interviewTree;
+//
+///*
+// * ï¿½Ãµï¿½ï¿½ï¿½code gankerï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½ã£¬ï¿½ï¿½ï¿½ï¿½binarytreeï¿½Ä¸ï¿½ï¿½Úµã£¬È»ï¿½ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½ã£¬ï¿½Ò±ï¿½Ò²ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½Ý¹ï¿½Ä·ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ï¿½Ë¡ï¿½
+// * ï¿½ï¿½Îªbinarysearchtree ï¿½ï¿½ï¿½ï¿½sortedï¿½ï¿½ï¿½ï¿½ï¿½é£¬ï¿½Ð¼ï¿½ï¿½ï¿½ï¿½ï¿½treeï¿½Ä¸ï¿½ï¿½Úµã¡£
+// */
+//public class SortedArrayToBinarySearchTree {
+//
+//	public BinaryNode<T> help(int[] sortedArray, int leftSide, int rightSide){
+//
+//		if(leftSide>rightSide){
+//		return null;
+//		}
+//
+//		int middlePoint = (leftSide+rightSide)/2;
+//		//ï¿½ï¿½ï¿½ï¿½ï¿½middlepointï¿½ï¿½value ï¿½ï¿½ï¿½ï¿½root
+//		BinaryNode<T> rootNode = new BinaryNode<T>(sortedArray[middlePoint]);
+//		rootNode.leftChild = help(sortedArray,0,middlePoint);
+//		rootNode.rightChild = help(sortedArray,middlePoint+1,rightSide);
+//
+//		return rootNode;
+//	}
+//
+//	public BinaryNode<T> sortedMethod(int[] sortedArray){
+//
+//		BinaryNode<T> rootNode;
+//
+//		if(sortedArray == null || sortedArray.length ==0){
+//			return null;
+//		}
+//		rootNode = help(sortedArray,0,sortedArray.length-1);
+//		return rootNode;
+//	}
+//
+//
+//
+//}

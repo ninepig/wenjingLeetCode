@@ -1,28 +1,28 @@
-package wenjing.interviewTree;
-
-public class TreeLevlOrder {
-	public void levelIterator(BiTree root)  
-	  {  
-	      if(root == null)  
-	      {  
-	          return ;  
-	      }  
-	      LinkedList<BiTree> queue = new LinkedList<BiTree>();  
-	      BiTree current = null;  
-	      queue.offer(root);//½«¸ù½ÚµãÈë¶Ó  
-	      while(!queue.isEmpty())  
-	      {  
-	          current = queue.poll();//³ö¶Ó¶ÓÍ·ÔªËØ²¢·ÃÎÊ  
-	          System.out.print(current.val +"-->");  
-	          if(current.left != null)//Èç¹ûµ±Ç°½ÚµãµÄ×ó½Úµã²»Îª¿ÕÈë¶Ó  
-	          {  
-	              queue.offer(current.left);  
-	          }  
-	          if(current.right != null)//Èç¹ûµ±Ç°½ÚµãµÄÓÒ½Úµã²»Îª¿Õ£¬°ÑÓÒ½ÚµãÈë¶Ó  
-	          {  
-	              queue.offer(current.right);  
-	          }  
-	      }  
-	        
-	  }  
-}
+//package wenjing.interviewTree;
+//
+//public class TreeLevlOrder {
+//	public void levelIterator(BiTree root)
+//	  {
+//	      if(root == null)
+//	      {
+//	          return ;
+//	      }
+//	      LinkedList<BiTree> queue = new LinkedList<BiTree>();
+//	      BiTree current = null;
+//	      queue.offer(root);//ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½
+//	      while(!queue.isEmpty())
+//	      {
+//	          current = queue.poll();//ï¿½ï¿½ï¿½Ó¶ï¿½Í·Ôªï¿½Ø²ï¿½ï¿½ï¿½ï¿½ï¿½
+//	          System.out.print(current.val +"-->");
+//	          if(current.left != null)//ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½Úµï¿½ï¿½ï¿½ï¿½Úµã²»Îªï¿½ï¿½ï¿½ï¿½ï¿½
+//	          {
+//	              queue.offer(current.left);
+//	          }
+//	          if(current.right != null)//ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½Úµï¿½ï¿½ï¿½Ò½Úµã²»Îªï¿½Õ£ï¿½ï¿½ï¿½ï¿½Ò½Úµï¿½ï¿½ï¿½ï¿½
+//	          {
+//	              queue.offer(current.right);
+//	          }
+//	      }
+//
+//	  }
+//}

@@ -68,7 +68,7 @@ public class ReverseVowelsOfString {
         return false;
     }
     //快慢指针！以前没写过脑子就不好使了
-    public String reverseVowels(String s){
+    public String reverseVowels2(String s){
         if(s==null||s.length()==0){
             return s;
         }

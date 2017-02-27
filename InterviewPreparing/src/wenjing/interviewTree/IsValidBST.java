@@ -1,83 +1,83 @@
-package wenjing.interviewTree;
-
-import java.util.ArrayList;
-
-/*http://blog.csdn.net/linhuanmars/article/details/23810735
- * 判断一课树是否 搜索二叉树
- * 第一种方法，利用BST的原理，是一课树的中序排列，按照中序遍历一下这棵二叉树，如果是出来的是递增，则是合法的，要利用一个前驱节点去保存前一个的值（因为JAVA值传递的问题，所以用一个变量的数组去保存前驱节点）
- *第一种方法写的太优雅了，完全是琢磨透了二叉搜索树的原理，结构
- *
- *第二种方法则是根据题意来解答的，二叉搜索树的某一个节点一定比左子节点大，比右节点小，所以就给了二叉查询树某一个节点一个左右边界，递归下去
- *
- */
-public class IsValidBST {
-
-	public boolean solutionFrist(BinaryNode<T> treeNode){
-		
-		ArrayList<Integer> pre = new ArrayList<>();
-		
-		pre.add(null);
-		
-		return help(treeNode,pre);
-		
-							
-		
-	}
-
-	private boolean help(BinaryNode<T> treeNode, ArrayList<Integer> pre) {
-		// TODO Auto-generated method stub
-		if(treeNode == null){
-			return false;
-		}
-		boolean left = help(treeNode.leftChild,pre);
-		
-		//如果当前节点的值小前驱的结点，则说明不符合BST
-		if(pre.get(0) != null && treeNode.getData()<pre.get(0) ){
-			return false;
-		}
-		pre.set(0, treeNode.getData());
-	
-		return left && help(treeNode.rightChild,pre);
-	}
-	
-	
-	public boolean solutionSecond(BinaryNode<T> treeNode){
-		
-		
-		return helpSecond(treeNode,Integer.MIN_VALUE,Integer.MAX_VALUE);
-		
-		
-	}
-
-	private boolean helpSecond(BinaryNode<T> treeNode, int minValue, int maxValue) {
-		// TODO Auto-generated method stub
-		if(treeNode == null){
-			return false;
-		}
-		
-		if(treeNode.getData()<= minValue || treeNode.getData()>=maxValue){
-			return false;
-		}
-		
-		return helpSecond(treeNode.leftChild, minValue, treeNode.getData())&&helpSecond(treeNode.rightChild,treeNode.getData(),maxValue);
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-}
+//package wenjing.interviewTree;
+//
+//import java.util.ArrayList;
+//
+///*http://blog.csdn.net/linhuanmars/article/details/23810735
+// * 锟叫讹拷一锟斤拷锟斤拷锟角凤拷 锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷
+// * 锟斤拷一锟街凤拷锟斤拷锟斤拷锟斤拷锟斤拷BST锟斤拷原锟斤拷锟斤拷一锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟叫ｏ拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟揭伙拷锟斤拷锟矫讹拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷浅锟斤拷锟斤拷锟斤拷堑锟斤拷锟斤拷锟斤拷锟斤拷呛戏锟斤拷模锟揭拷锟斤拷锟揭伙拷锟角帮拷锟斤拷诘锟饺ワ拷锟斤拷锟角耙伙拷锟斤拷锟街碉拷锟斤拷锟轿狫AVA值锟斤拷锟捷碉拷锟斤拷锟解，锟斤拷锟斤拷锟斤拷一锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷去锟斤拷锟斤拷前锟斤拷锟节点）
+// *锟斤拷一锟街凤拷锟斤拷写锟斤拷太锟斤拷锟斤拷锟剿ｏ拷锟斤拷全锟斤拷锟斤拷磨透锟剿讹拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷原锟斤拷锟结构
+// *
+// *锟节讹拷锟街凤拷锟斤拷锟斤拷锟角革拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟侥ｏ拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷某一锟斤拷锟节碉拷一锟斤拷锟斤拷锟斤拷锟接节碉拷螅锟斤拷医诘锟叫★拷锟斤拷锟斤拷跃透锟斤拷硕锟斤拷锟斤拷询锟斤拷某一锟斤拷锟节碉拷一锟斤拷锟斤拷锟揭边界，锟捷癸拷锟斤拷去
+// *
+// */
+//public class IsValidBST {
+//
+//	public boolean solutionFrist(BinaryNode<T> treeNode){
+//
+//		ArrayList<Integer> pre = new ArrayList<>();
+//
+//		pre.add(null);
+//
+//		return help(treeNode,pre);
+//
+//
+//
+//	}
+//
+//	private boolean help(BinaryNode<T> treeNode, ArrayList<Integer> pre) {
+//		// TODO Auto-generated method stub
+//		if(treeNode == null){
+//			return false;
+//		}
+//		boolean left = help(treeNode.leftChild,pre);
+//
+//		//锟斤拷锟斤拷锟角帮拷诘锟斤拷值小前锟斤拷锟侥斤拷悖拷锟剿碉拷锟斤拷锟斤拷锟斤拷锟紹ST
+//		if(pre.get(0) != null && treeNode.getData()<pre.get(0) ){
+//			return false;
+//		}
+//		pre.set(0, treeNode.getData());
+//
+//		return left && help(treeNode.rightChild,pre);
+//	}
+//
+//
+//	public boolean solutionSecond(BinaryNode<T> treeNode){
+//
+//
+//		return helpSecond(treeNode,Integer.MIN_VALUE,Integer.MAX_VALUE);
+//
+//
+//	}
+//
+//	private boolean helpSecond(BinaryNode<T> treeNode, int minValue, int maxValue) {
+//		// TODO Auto-generated method stub
+//		if(treeNode == null){
+//			return false;
+//		}
+//
+//		if(treeNode.getData()<= minValue || treeNode.getData()>=maxValue){
+//			return false;
+//		}
+//
+//		return helpSecond(treeNode.leftChild, minValue, treeNode.getData())&&helpSecond(treeNode.rightChild,treeNode.getData(),maxValue);
+//	}
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//}

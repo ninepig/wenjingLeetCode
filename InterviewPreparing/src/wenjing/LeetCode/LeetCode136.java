@@ -1,47 +1,47 @@
-package wenjing.LeetCode;
-
-import java.util.Enumeration;
-import java.util.Hashtable;
-
-/*
- * Given an array of integers, every element appears twice except for one. Find that single one.
- * 
- * Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
- */
-public class LeetCode136 {
-
-	//ÓÃÒì»òµÄ·½·¨À´×ö£¬ÈÎºÎÊýºÍ0Òì»òÎªÄÇ¸öÊý±¾Éí£¬Á½¸öÏàÍ¬µÄÊýÒì»òÎª0
-	public int singleNumber(int[] nums) {
-        if(nums==null||nums.length==0 )
-        {
-            return 0;
-        }
-        if(nums.length==1){
-            return nums[0];
-        }
-        int result =0;
-        for(int i = 0 ; i<nums.length;i++ ){
-           result = result^nums[i];
-        }
-        return result;
-    }
-	//»¹¿ÉÒÔÓÃ±ðµÄ·½·¨£¬±ÈÈç¹þÏ£±í
-	
-	public int singleNumber(int[] nums) {
-	    
-	    Hashtable<Integer,Integer> table = new Hashtable();
-	    
-	    for(int i=0;i<nums.length;i++)
-	    {
-	        if(table.containsKey(nums[i]) == false)
-	        {
-	            table.put(nums[i],i);
-	        }
-	        else
-	        {
-	            table.remove(nums[i]);
-	        }
-	    }
-	    Enumeration<Integer> keys = table.keys();
-	    return keys.nextElement();
-}
+//package wenjing.LeetCode;
+//
+//import java.util.Enumeration;
+//import java.util.Hashtable;
+//
+///*
+// * Given an array of integers, every element appears twice except for one. Find that single one.
+// *
+// * Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
+// */
+//public class LeetCode136 {
+//
+//	//ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½0ï¿½ï¿½ï¿½Îªï¿½Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª0
+//	public int singleNumber(int[] nums) {
+//        if(nums==null||nums.length==0 )
+//        {
+//            return 0;
+//        }
+//        if(nums.length==1){
+//            return nums[0];
+//        }
+//        int result =0;
+//        for(int i = 0 ; i<nums.length;i++ ){
+//           result = result^nums[i];
+//        }
+//        return result;
+//    }
+//	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã±ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï£ï¿½ï¿½
+//
+//	public int singleNumber(int[] nums) {
+//
+//	    Hashtable<Integer,Integer> table = new Hashtable();
+//
+//	    for(int i=0;i<nums.length;i++)
+//	    {
+//	        if(table.containsKey(nums[i]) == false)
+//	        {
+//	            table.put(nums[i],i);
+//	        }
+//	        else
+//	        {
+//	            table.remove(nums[i]);
+//	        }
+//	    }
+//	    Enumeration<Integer> keys = table.keys();
+//	    return keys.nextElement();
+//}

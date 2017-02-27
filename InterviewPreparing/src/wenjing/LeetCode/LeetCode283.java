@@ -1,72 +1,72 @@
-package wenjing.LeetCode;
-/*
- * leetcode 283
-
-ÒÆ¶¯ËùÓĞµÄ0 µ½×îºó £¬ÆäËûµÄ°´ÕÕË³Ğò²»±ä
-²»ÄÜÓĞ¶îÍâµÄÊı×é¿Õ¼ä£¬¼´¸´ÖÆÒ»¸öÊı×é£¬ÒªÇóo(n)°É
-
-Ò»¿ªÊ¼ÏëÓÃÒ»¸ö¶îÍâµÄ¶ÓÁĞ£¬µ«ÊÇÏëÏë ÕâÑùÒª¶îÍâµÄ¿Õ¼ä£¬¿Ï¶¨²»ĞĞ¡£
-¿´ÁË´ğ°¸ÓĞÁËË¼Â·
-É¨ÃèÒ»´ÎÊı×é£¬°Ñ·Ç0µÄ°´ÕÕË³Ğò·Åµ½Êı×éÇ°¶Ë£¬È»ºó±£´æÒ»¸öposµÄÎ»ÖÃ
-È»ºóposÖ®ºóµÄËùÓĞÊı¶¼Îª0
-
- */
-public class LeetCode283 {
-    public void moveZeroes(int[] nums) {
-        if(nums==null){
-            return;
-        }
-        int pos = 0;
-        for(int i = 0;i<nums.length;i++){
-            if(nums[i]!=0){
-                nums[pos] = nums[i];
-                pos++;
-            }
-        }
-        for(int i = pos;i<nums.length;i++){
-            nums[pos] = 0;
-            pos++;
-        }
-    }
-    
-   
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    public void moveZeroes(int[] nums) {
-        if(nums==null){
-            return;
-        }
-        int pos = 0;
-        int zeroNum = 0;
-        for(int i = 0 ; i <= nums.length-1;i++){
-        	if(nums[i] != 0){
-        		nums[pos] = nums[i];
-        		pos++;
-        	}else{
-        		zeroNum++;
-        	}
-        }
-        for(int j = pos+1;j<=nums.length-1;j++){
-        	nums[j] = 0;
-        }
-        
-    }
-    
-    
-}
+//package wenjing.LeetCode;
+///*
+// * leetcode 283
+//
+//ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½Ğµï¿½0 ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä°ï¿½ï¿½ï¿½Ë³ï¿½ò²»±ï¿½
+//ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¼ä£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½é£¬Òªï¿½ï¿½o(n)ï¿½ï¿½
+//
+//Ò»ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½Ğ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Ä¿Õ¼ä£¬ï¿½Ï¶ï¿½ï¿½ï¿½ï¿½Ğ¡ï¿½
+//ï¿½ï¿½ï¿½Ë´ï¿½ï¿½ï¿½ï¿½ï¿½Ë¼Â·
+//É¨ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½é£¬ï¿½Ñ·ï¿½0ï¿½Ä°ï¿½ï¿½ï¿½Ë³ï¿½ï¿½Åµï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½Ë£ï¿½È»ï¿½ó±£´ï¿½Ò»ï¿½ï¿½posï¿½ï¿½Î»ï¿½ï¿½
+//È»ï¿½ï¿½posÖ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª0
+//
+// */
+//public class LeetCode283 {
+//    public void moveZeroes(int[] nums) {
+//        if(nums==null){
+//            return;
+//        }
+//        int pos = 0;
+//        for(int i = 0;i<nums.length;i++){
+//            if(nums[i]!=0){
+//                nums[pos] = nums[i];
+//                pos++;
+//            }
+//        }
+//        for(int i = pos;i<nums.length;i++){
+//            nums[pos] = 0;
+//            pos++;
+//        }
+//    }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//    public void moveZeroes(int[] nums) {
+//        if(nums==null){
+//            return;
+//        }
+//        int pos = 0;
+//        int zeroNum = 0;
+//        for(int i = 0 ; i <= nums.length-1;i++){
+//        	if(nums[i] != 0){
+//        		nums[pos] = nums[i];
+//        		pos++;
+//        	}else{
+//        		zeroNum++;
+//        	}
+//        }
+//        for(int j = pos+1;j<=nums.length-1;j++){
+//        	nums[j] = 0;
+//        }
+//
+//    }
+//
+//
+//}

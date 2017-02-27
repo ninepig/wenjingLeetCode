@@ -1,50 +1,50 @@
-package wenjing.interviewTree;
-
-import java.util.HashMap;
-
-/*
- * http://blog.csdn.net/linhuanmars/article/details/24389549
- * »­Ò»¸öÇ°ÐòºÍÖÐÐòµÄÍ¼£¬Í¨¹ýÇ°ÐòµÄÊý×é¿ÉÒÔµÃµ½¸ù½ÚµãµÄÎ»ÖÃ£¬Í¨¹ýÕâ¸ö¸ù½ÚµãµÄÖµÔÚÖÐÐòÖÐ¿ÉÒÔ»ñµÃ×óÓÒ×ÓÊ÷£¬×ó×ÓÊ÷ÔÚÇ°ÐòÖ®ÖÐÓÖ¿ÉÒÔ·Ö£¬µÚÒ»¸ö½ÚµãÎª¸ù½Úµã£¬ÐÎ³ÉµÝ¹é¡£
- * ÓÃÒ»¸öhashmapÀ´±£´æÖÐÐòµÄÖµ£¬indexÐòÁÐ¡£
- * ¹Ø¼üÊÇÏëÃ÷°×µÝ¹éÖÐ£¬×óÓÒ×ÓÊ÷µÄpreOderµÄÊý×éindexÎ»ÖÃ£¬ÀûÓÃindex
- */
-public class UsingPreoderAndInorderToFormBinaryTree {
-
-	public BinaryNode<T> solution(int[] preOrder,int[] inOrder){
-		if(preOrder != null && inOrder != null){
-			return null;
-		}
-		HashMap<Integer, Integer> inOrderMap = new HashMap<>();
-		for(int i = 0; i<inOrder.length;i++){
-			inOrderMap.put(inOrder[i], i);
-		}
-		BinaryNode<T> root;
-		
-		root = help(preOrder,0,preOrder.length-1,inOrder,0,inOrder.length-1,inOrderMap);
-		
-		return root;
-		
-		
-	}
-
-	private BinaryNode<T> help(int[] preOrder, int preOrderL, int preOrderR, int[] inOrder, int inOrderL, int inOrderR,
-			HashMap<Integer, Integer> inorderKeyMap) {
-		// TODO Auto-generated method stub
-		if(preOrderL>preOrderR||inOrderL>inOrderR){
-			return null;
-		}
-		BinaryNode<T> rootNode = new BinaryNode<>(preOrder[preOrderL]);
-		
-		int rootNodeIndexInInorder = inorderKeyMap.get(preOrder[inOrderL]);
-		
-		rootNode.leftChild = help(preOrder,preOrderL+1,rootNodeIndexInInorder-inOrderL+preOrderL,inOrder,inOrderL,rootNodeIndexInInorder-1,inorderKeyMap);
-
-		rootNode.rightChild = help(preOrder, preOrderL+rootNodeIndexInInorder-inOrderL-1, preOrderR, inOrder,rootNodeIndexInInorder+1, inOrderR, inorderKeyMap);
-		
-		
-		return rootNode;
-	}
-	
-	
-	
-}
+//package wenjing.interviewTree;
+//
+//import java.util.HashMap;
+//
+///*
+// * http://blog.csdn.net/linhuanmars/article/details/24389549
+// * ï¿½ï¿½Ò»ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½Í¨ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÔµÃµï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½Î»ï¿½Ã£ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¿ï¿½ï¿½Ô»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½Ö®ï¿½ï¿½ï¿½Ö¿ï¿½ï¿½Ô·Ö£ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Úµï¿½Îªï¿½ï¿½ï¿½Úµã£¬ï¿½Î³ÉµÝ¹é¡£
+// * ï¿½ï¿½Ò»ï¿½ï¿½hashmapï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½indexï¿½ï¿½ï¿½Ð¡ï¿½
+// * ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×µÝ¹ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½preOderï¿½ï¿½ï¿½ï¿½ï¿½ï¿½indexÎ»ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ï¿½index
+// */
+//public class UsingPreoderAndInorderToFormBinaryTree {
+//
+//	public BinaryNode<T> solution(int[] preOrder,int[] inOrder){
+//		if(preOrder != null && inOrder != null){
+//			return null;
+//		}
+//		HashMap<Integer, Integer> inOrderMap = new HashMap<>();
+//		for(int i = 0; i<inOrder.length;i++){
+//			inOrderMap.put(inOrder[i], i);
+//		}
+//		BinaryNode<T> root;
+//
+//		root = help(preOrder,0,preOrder.length-1,inOrder,0,inOrder.length-1,inOrderMap);
+//
+//		return root;
+//
+//
+//	}
+//
+//	private BinaryNode<T> help(int[] preOrder, int preOrderL, int preOrderR, int[] inOrder, int inOrderL, int inOrderR,
+//			HashMap<Integer, Integer> inorderKeyMap) {
+//		// TODO Auto-generated method stub
+//		if(preOrderL>preOrderR||inOrderL>inOrderR){
+//			return null;
+//		}
+//		BinaryNode<T> rootNode = new BinaryNode<>(preOrder[preOrderL]);
+//
+//		int rootNodeIndexInInorder = inorderKeyMap.get(preOrder[inOrderL]);
+//
+//		rootNode.leftChild = help(preOrder,preOrderL+1,rootNodeIndexInInorder-inOrderL+preOrderL,inOrder,inOrderL,rootNodeIndexInInorder-1,inorderKeyMap);
+//
+//		rootNode.rightChild = help(preOrder, preOrderL+rootNodeIndexInInorder-inOrderL-1, preOrderR, inOrder,rootNodeIndexInInorder+1, inOrderR, inorderKeyMap);
+//
+//
+//		return rootNode;
+//	}
+//
+//
+//
+//}
