@@ -1,5 +1,8 @@
 package wenjing.Leecode.number;
 
+import java.util.HashMap;
+import java.util.Stack;
+
 /**
  * Created by yamengwenjing on 2017-02-17.
  */
@@ -48,5 +51,28 @@ public class NextGreaterElementI {
             }
         return 0;
     }
+
+
+    public int[] nextGreaterElementStack(int[] findNums, int[] nums) {
+        Stack<Integer> decsendingStack = new Stack<>();
+        HashMap<Integer,Integer> hashMap = new HashMap<>();
+
+        for(int i = 0;i<nums.length;i++){
+            while ((!decsendingStack.isEmpty())&&decsendingStack.peek()<nums[i]){
+                //因为是降序，而且不重复 所以只要比他小的数字只会出现一次，但是如果再有一个num 比之前的都大，他会重复pop的过程，直到排成一个降序！
+                //这个题以后可以作为用stack 拍降序的方法！
+                hashMap.put(decsendingStack.pop(),nums[i]);
+            }
+            decsendingStack.push(nums[i]);
+        }
+        // findNum的数字是原来的sub set，所以肯定在原来的数组之中，所以肯定会在降序stack之中走一次，只要把nums中的位置找好就行了！，
+        //需要好好理解
+        for(int i = 0 ; i<findNums.length;i++){
+            findNums[i] = hashMap.getOrDefault(findNums[i],-1);
+        }
+        return  findNums;
+    }
+
+
 
 }

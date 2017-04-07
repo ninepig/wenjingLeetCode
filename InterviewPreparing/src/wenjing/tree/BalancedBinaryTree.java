@@ -32,4 +32,29 @@ public class BalancedBinaryTree {
         return isBalanced;
 
     }
+//    boolean isBalancedTest = true;
+//    public boolean isBalanced2(TreeNode root) {
+//        treeDepthHelper(root);
+//        return isBalancedTest;
+//    }
+//
+//    private int treeDepthHelper(TreeNode root) {
+//        if(!isBalancedTest){
+//            return -1;
+//        }
+//        if(root==null){
+//            return 1;
+//        }
+//        int leftDepth = treeDepth(root.left);
+//        int rightDepth = treeDepth(root.right);
+//
+//        if(Math.abs(leftDepth-rightDepth)>1){
+//            isBalanced = false;
+//            return -1;
+//        }
+//        return Math.max(leftDepth,rightDepth)+1;
+//
+//    }
+
+
 }

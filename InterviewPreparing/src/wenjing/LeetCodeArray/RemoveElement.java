@@ -19,4 +19,71 @@ public class RemoveElement {
         }
     return countNumber;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+//2017-3-29
+    public int removeElement2(int[] nums, int val) {
+        if(nums==null||nums.length==0){
+            return 0;
+        }
+        int length = nums.length;
+        int j = 0;
+        for(int i =0;i<length;i++){
+            if(nums[i]!=val){
+                nums[j]=nums[i];
+                j++;
+            }else {
+                continue;
+            }
+        }
+        return j;
+    }
+//2017-329
+    public int removeElement3(int[] nums, int val) {
+        int i = 0;
+        int n = nums.length;
+        while (i < n) {
+            if (nums[i] == val) {
+                nums[i] = nums[n - 1];
+                // reduce array size by one
+                n--;
+            } else {
+                i++;
+            }
+        }
+        return n;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

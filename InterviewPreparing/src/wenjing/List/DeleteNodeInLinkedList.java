@@ -10,7 +10,6 @@ public class DeleteNodeInLinkedList {
         if(node==null){
             return;
         }
-
         node.val = node.next.val;
         node.next = node.next.next;
 

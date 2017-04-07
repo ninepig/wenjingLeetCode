@@ -25,7 +25,7 @@ public class ReverseList {
     }
 
     public ListNode reverseListRe(ListNode head){
-        if(head==null){
+        if(head==null||head.next==null){
             return head;
         }
         //递归头结点的下一个节点
@@ -38,4 +38,22 @@ public class ReverseList {
         return newHead;
 
     }
+
+    public ListNode reverseListFeb2017(ListNode head){
+        if(head==null){
+            return head;
+        }
+        ListNode newHead = null;
+        ListNode currentNode = head;
+        while(currentNode!=null){
+            ListNode tempNode = currentNode;
+            currentNode = currentNode.next;
+            tempNode.next = newHead;
+            newHead = tempNode;
+        }
+
+        return newHead;
+    }
+
+
 }

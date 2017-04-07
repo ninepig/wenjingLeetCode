@@ -25,7 +25,7 @@ public class HammingDistance {
         int target = x ^ y ;
         // do the bit operation ,every time remove bit to right , then do and  operation with 1, count the number of 1
         for(int i= 0;i<=31;i++){
-            count += (target>>1)&1;
+            count += (target>>i)&1;
         }
         return count;
     }

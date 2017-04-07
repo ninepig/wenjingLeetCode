@@ -27,4 +27,33 @@ public class ArrangeCoins {
         return (int)((-1 + Math.sqrt(1 + 8 * (long)n)) / 2);
     }
 
+    public int arrangeCoins2(int n) {
+//        if (n <= 2) {
+//            return 1;
+//        }
+//
+//
+//        int span = 1;
+//        int remain = n;
+//        int currentValue = 0;
+//        int i = 1;
+//        for (i = 0; i <= n; i++) {
+//            currentValue= currentValue + span;
+//            if (remain >= currentValue) {
+//                span++;
+//                remain = remain - currentValue;
+//            }
+//
+//        }
+//        return i;
+        //上面这种情况 可能会越界！所以要用long
+
+        if(n<=0) return 0;
+        long sum=0;
+        int i=1;
+        for(; sum<=n; i++){
+            sum += i;
+        }
+        return i-2;
+    }
 }

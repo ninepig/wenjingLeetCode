@@ -3,6 +3,7 @@ package wenjing.tree;
 import wenjing.LeetCode.TreeNode;
 
 import java.util.ArrayList;
+import java.util.IntSummaryStatistics;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -38,15 +39,39 @@ public class LevelTravleBottmUp107 {
 
             }
             resultList.add(0,thisLevelResult);
-
-
         }
 
 
         return resultList;
 
 
+    }
 
+    public List<List<Integer>> levelOrderBottom2(TreeNode root){
+        if(root == null){
+            return new ArrayList<List<Integer>>();
+        }
+        List<List<Integer>> resultList = new ArrayList<>();
+        LinkedList<TreeNode> queueList = new LinkedList<>();
+        queueList.offer(root);
+        while (!queueList.isEmpty()){
+            int levelSize = queueList.size();
+            ArrayList<Integer> thisLevelResult = new ArrayList<>();
+            for(int i = 0;i<levelSize;i++){
+                TreeNode currentNode = queueList.pop();
+                thisLevelResult.add(currentNode.val);
+                if(currentNode.left!=null){
+                    queueList.offer(currentNode.left);
+                }
+                if(currentNode.right!=null){
+                    queueList.offer(currentNode.right);
+                }
+            }
+            resultList.add(0,thisLevelResult);
+        }
+        return resultList;
 
     }
+
+
 }

@@ -21,6 +21,24 @@ public class reverseString {
 
         return result.toString();
     }
-
+    //swap的方法效率更高 ！质的飞跃
+    public String reverseStringSwap(String s){
+        if(s==null||s.length()==0){
+            return "";
+        }
+        int l = 0 ;
+        int r = s.length()-1;
+        char[] result = s.toCharArray();
+        while (l<r){
+            char temp = result[l];
+            result[l] =result[r];
+            result[r] = temp;
+            l++;
+            r--;
+        }
+        //不能用这个，char[] 的toString 没有实现，会变成乱码
+//        return  result.toString();
+        return  new String(result);
+    }
 
 }
