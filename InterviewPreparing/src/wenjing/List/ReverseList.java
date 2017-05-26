@@ -2,6 +2,8 @@ package wenjing.List;
 
 import wenjing.LeetCode.ListNode;
 
+import java.util.List;
+
 /**
  * Created by yamengwenjing on 2016-11-21.
  */
@@ -55,5 +57,24 @@ public class ReverseList {
         return newHead;
     }
 
+
+    public ListNode reverseListMay2017(ListNode head){
+        if(head==null){
+            return head;
+        }
+
+        ListNode newHead =null;
+        ListNode currentNode =head;
+        while (currentNode!=null){
+            ListNode tempNode = currentNode;
+            currentNode = currentNode.next;
+            tempNode.next = newHead;
+            newHead = tempNode;
+        }
+        return newHead;
+
+
+
+    }
 
 }
