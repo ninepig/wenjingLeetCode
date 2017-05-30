@@ -24,7 +24,10 @@ public class permutationII {
 
         return result;
     }
-
+    /*
+    用一个辅助数组来帮助完成，如果这个数已经使用过了，则直接continue ，或者这个有1 1 1 这种情况，我们只考虑前一个1已经被使用过了的情况下，
+    才把第二个1加入permutation之中，也就是第一次循环走到第三个1的时候，直接continue，因为第二个1还没有被使用过
+     */
     private void permuteHelper(List<List<Integer>> result, boolean[] used, List<Integer> currentList, int[] nums) {
         if(currentList.size()==nums.length){
             result.add(new ArrayList<>(currentList));

@@ -30,7 +30,6 @@ public class subsetsII {
         result.add(new ArrayList<Integer>(currentList));
         //postion是很关键的一点，通过postion 来确定在原集合中子集的位置
         for(int i=postion;i<nums.length;i++){
-
             //考虑去掉重复的情况，也就是如果当前i不是我们第一位，同时num[i-1] == num[i]，也就是下一位和当前位重复了，比如1,2,2这样的情况，我们就忽略第二个2
             if(i!=postion&&nums[i]==nums[i-1]){
                 continue;
