@@ -27,7 +27,7 @@ public class palindromePartition {
             result.add(new ArrayList<>(currentList));
         }else {
             for(int i = start;i<s.length();i++){
-
+                    //对于当前循环，我们考虑i怎么样才能加入currentlist， 这里面就是如果start到i是回文的才可以加入
                     //第一层循环表示必须是 a aa aba 这样的 从i 开始  i---i+1/i---i+2 的substring 都是回文才可以
                     if(isParlndrome(s,start,i)){
                         currentList.add(s.substring(start,i+1));

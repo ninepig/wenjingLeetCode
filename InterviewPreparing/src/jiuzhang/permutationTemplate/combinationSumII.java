@@ -28,6 +28,7 @@ public class combinationSumII {
         }else {
             for(int i = pos ; i< candidates.length;i++){
                 //deduplicate
+                //对于当前层，我只要考虑 1 去重，而直接加入和I相关的数
                 if(i>pos&&candidates[i-1]==candidates[i]){
                     continue;
                 }

@@ -32,6 +32,7 @@ public class combinationSum {
     }else {
         for(int i = pos ; i< candidates.length;i++){
             //这道题是unique member 所以不需要考虑去重的问题
+            //同样，对于 这一层，我只考虑如何选择加入 和循环相关的，只要加入 数组中的这个数就可以了。
              currentList.add(candidates[i]);
             // 我们可以重复使用同一个数，所以用i
             //n---n+1的情况 2个 trick 1是 用remain ，第二是对于数组 position的变化，因为我们可以重复取当前数组的值，所以 i就是i

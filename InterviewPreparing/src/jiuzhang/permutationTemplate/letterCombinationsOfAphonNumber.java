@@ -39,6 +39,7 @@ public class letterCombinationsOfAphonNumber {
             //这个相当于取当前数组的过程，因为abc 就相当于我们的第一层ad ae af bd be bf 是这样排列下去的
             String mappingResult = mapping[mappingPosition];
             for (char singleChar : mappingResult.toCharArray()) {
+                //这个就稍微不一样一些 对于当前I的循环，我们考虑的是加入这一层对应的3个字符，
                 currentResult.append(singleChar);
                 //虽然这里是postion+1 实质上还是i+1，因为是对于那个数组而言 这就是i+1,
                 letterComHelper(result, currentResult, mapping, digits,position + 1);

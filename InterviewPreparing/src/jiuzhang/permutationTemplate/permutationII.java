@@ -33,6 +33,7 @@ public class permutationII {
             result.add(new ArrayList<>(currentList));
         }else {
             for (int i = 0 ; i<nums.length;i++){
+                //限定你当前要加入list的条件 和 i的关系，如果你i used过了 肯定不行，如果你前一位没有used，同时你和前一位一样，才可以加入list
                 if(used[i]){
                     continue;
                 }

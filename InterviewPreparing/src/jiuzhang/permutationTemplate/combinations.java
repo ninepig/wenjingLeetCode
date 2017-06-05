@@ -34,6 +34,7 @@ public class combinations {
             result.add(new ArrayList<>(currentList));
         }else {
             for(int i = postion ;i < nums.length ; i++){
+                // 对于这一层，我只考虑list 和 i 的关系的话 我只要把出现的num[i]加入 当前list 即可，因为是unique的 所以我都不用判断去重的问题
                 currentList.add(nums[i]);
                 // 这里出错了！ 因为combination，所以用完了要更改这个数组，而不是直接拿这个数组传过去
                 //helper2(result,currentList,nums,postion+1,k);

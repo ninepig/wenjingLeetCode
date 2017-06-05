@@ -29,6 +29,7 @@ public class permutation {
             result.add(new ArrayList<>(tempList));
         }else {
             for(int i = 0 ;i<nums.length;i++){
+                //考虑当前i 怎么样才能加入 currentlist，如果存在就不可以了，也就是只能用一次，因为全排列
                 if(tempList.contains(nums[i])){
                     continue;
                 }
