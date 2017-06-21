@@ -13,7 +13,7 @@ public class searchInRotatedArrayP {
         while (start+1<end){
             int mid = start+(end-start)/2;
             if(nums[mid]<nums[end]){
-
+                //要考虑到大于等于 小于等于的情况 如果target<= 或者 大于等于的时候其实是可以的
                 if(target>nums[mid]&&target<=nums[end]){
                     start = mid;
                 }else {
