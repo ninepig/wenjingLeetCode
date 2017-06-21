@@ -24,26 +24,24 @@ import java.util.List;
 public class combinationSum {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> result = new ArrayList<>();
-        if(candidates==null||candidates.length==0){
+        if(candidates.length==0||candidates==null){
             return result;
         }
-        List<Integer> currentList = new ArrayList<>();
-        //need be sort
+        List<Integer> currentlist = new ArrayList<>();
         Arrays.sort(candidates);
-        combinationSumHelper(candidates,currentList,target,0,result);
+        combinationSumHelper(candidates,currentlist,target,0,result);
         return result;
     }
 
     private void combinationSumHelper(int[] candidates, List<Integer> currentList, int target, int postion,List<List<Integer>> result) {
-        if(target==0){
-            result.add(new ArrayList<>(currentList));
-        }else if(target<0){
+        if(target<0){
             return;
+        }else if (target==0){
+            result.add(new ArrayList<>(currentList));
         }else {
             for(int i = postion;i<candidates.length;i++){
                 currentList.add(candidates[i]);
-                // again! using i!! not 0
-//                combinationSumHelper(candidates,currentList,target-candidates[i],0,result);
+                // 传递下去是I,不是postion！！第三次了
                 combinationSumHelper(candidates,currentList,target-candidates[i],i,result);
                 currentList.remove(currentList.size()-1);
             }

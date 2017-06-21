@@ -25,35 +25,32 @@ import java.util.List;
  */
 public class combinationSum2 {
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+            List<List<Integer>> result = new ArrayList<>();
+            if(candidates==null||candidates.length==0){
+                return result;
+            }
+            List<Integer> currentlist = new ArrayList<>();
+            Arrays.sort(candidates);
+            combinationSum2helper(result,currentlist,candidates,target,0);
 
-        List<List<Integer>> result = new ArrayList<>();
-        if(candidates==null||candidates.length==0){
-            return result;
-        }
-        Arrays.sort(candidates);
-        List<Integer> currentList = new ArrayList<>();
-        combinationSum2helper(result,currentList,candidates,target,0);
-        return result;
+            return  result;
+
     }
 
     private void combinationSum2helper(List<List<Integer>> result, List<Integer> currentList, int[] candidates, int target, int postion) {
         if(target<0){
             return;
         }else if (target==0){
-            //again, useing new Arraylist to form !!!shit
             result.add(new ArrayList<>(currentList));
         }else {
             for(int i = postion;i<candidates.length;i++){
-                if(i>postion&&candidates[i-1]==candidates[i]){
+                if(i>postion&&candidates[i]==candidates[i-1]){
                     continue;
                 }
                 currentList.add(candidates[i]);
                 combinationSum2helper(result,currentList,candidates,target-candidates[i],i+1);
                 currentList.remove(currentList.size()-1);
-
-            }
-
+                }
         }
-
     }
 }

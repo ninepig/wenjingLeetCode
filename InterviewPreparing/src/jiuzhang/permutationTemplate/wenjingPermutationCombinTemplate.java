@@ -27,6 +27,8 @@ public class wenjingPermutationCombinTemplate {
         return result;
     }
 
+
+
     /**
      * 递归解决排列组合的辅助方法
      *

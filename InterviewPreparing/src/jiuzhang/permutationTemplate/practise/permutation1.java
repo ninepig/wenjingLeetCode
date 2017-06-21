@@ -20,23 +20,21 @@ import java.util.List;
  */
 public class permutation1 {
     public List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> result = new ArrayList<>();
-        if(nums==null||nums.length==0){
-            return result;
-        }
-        List<Integer> currentList = new ArrayList<>();
-//        permuteHelper(result,currentList,nums,0);
-        permuteHelper(result,currentList,nums);
-
-        return result;
+            List<List<Integer>> result = new ArrayList<>();
+            if(nums==null||nums.length==0){
+                return result;
+            }
+            List<Integer> currentResult = new ArrayList<>();
+            permuteHelper(result,currentResult,nums);
+            return  result;
 
     }
 
     private void permuteHelper(List<List<Integer>> result, List<Integer> currentList, int[] nums) {
-        if (currentList.size() == nums.length) {
+        if(currentList.size()==nums.length){
             result.add(new ArrayList<>(currentList));
         }else {
-            for(int i = 0; i<nums.length;i++){
+            for (int i = 0 ; i<nums.length;i++){
                 if(currentList.contains(nums[i])){
                     continue;
                 }
@@ -48,16 +46,5 @@ public class permutation1 {
 
 
     }
-    //permutation 不是 combination 完全做错了！
-//    private void permuteHelper(List<List<Integer>> result, List<Integer> currentList, int[] nums, int postion) {
-//        if (currentList.size() == nums.length) {
-//            result.add(new ArrayList<>(currentList));
-//        } else {
-//            for(int i = postion;i<nums.length;i++){
-//                currentList.add(nums[i]);
-//                permuteHelper(result,currentList,nums,i+1);
-//                currentList.remove(currentList.size()-1);
-//            }
-//        }
-//    }
+
 }

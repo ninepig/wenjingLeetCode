@@ -27,25 +27,19 @@ public class combination {
         }
         List<Integer> currentList = new ArrayList<>();
         combinationHelper(result,currentList,n,k,1);
-
         return result;
     }
 
     private void combinationHelper(List<List<Integer>> result, List<Integer> currentList, int n, int k, int postion) {
-
-        if(currentList.size()==k){
-            //必须用newArraylist 的形式做
+        if(currentList.size() == k){
             result.add(new ArrayList<>(currentList));
         }else {
-
-            for (int i = postion;i<=n;i++){
-//                currentList.add(postion);
-//                combinationHelper(result,currentList,n,k,postion+1);
-                //大哥。肯定是把i加进去啊！从N--N+1的变化是由i决定的啊。。
+            for(int i = postion;i<=n;i++){
                 currentList.add(i);
                 combinationHelper(result,currentList,n,k,i+1);
                 currentList.remove(currentList.size()-1);
             }
         }
+
     }
 }
