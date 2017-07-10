@@ -10,23 +10,29 @@ import java.util.List;
  */
 public class binaryTreePath {
     public List<String> binaryTreePaths(TreeNode root) {
-        ArrayList<String> resultList = new ArrayList<>();
-        if(root==null){
-            return resultList;
-        }
-        helper(root,"",resultList);
-        return  resultList;
+      if(root == null){
+          return new ArrayList<>();
+      }
+      List<String> result = new ArrayList<>();
+      helper(result,"",root);
+
+      return result;
+
     }
 
-    private void helper(TreeNode root, String s,ArrayList<String> resultList) {
-        if(root.left==null&&root.right==null){
-            resultList.add(s+root.val);
+    private void helper(List<String> result, String s, TreeNode root) {
+        if(root == null){
+            return;
+        }
+        if(root.left == null&& root.right==null){
+            s = s+root.val;
+            result.add(s);
         }
         if(root.left!=null){
-            helper(root.left,s+root.val+"->",resultList);
+            helper(result,s+root.val+"->",root.left);
         }
         if(root.right!=null){
-            helper(root.right,s+root.val+"->",resultList);
+            helper(result,s+root.val+"->",root.right);
         }
     }
 
