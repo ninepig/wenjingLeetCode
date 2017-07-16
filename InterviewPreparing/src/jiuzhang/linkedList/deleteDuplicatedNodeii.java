@@ -24,8 +24,6 @@ public class deleteDuplicatedNodeii {
 //                head.next = head.next.next;
                 head =head.next;
             }
-
-
         }
         return dummy.next;
     }
