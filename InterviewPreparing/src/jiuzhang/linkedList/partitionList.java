@@ -19,7 +19,7 @@ public class partitionList {
         head = firstDummy;
 
         while (head.next!=null){
-            if(head.next.val<3){
+            if(head.next.val<x){
                 head = head.next;
             }else {
                 head.next = head.next.next;
@@ -28,7 +28,7 @@ public class partitionList {
 
         tempHead = secondDummy;
         while (tempHead.next!=null){
-            if(tempHead.next.val>=3){
+            if(tempHead.next.val>=x){
                 tempHead = tempHead.next;
             }else {
                 tempHead.next = tempHead.next.next;
