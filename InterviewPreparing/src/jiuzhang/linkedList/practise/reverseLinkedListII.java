@@ -37,8 +37,6 @@ public class reverseLinkedListII {
             mNode.next = postNNode;
 
 
-
-
             return dummy.next;
 
     }
