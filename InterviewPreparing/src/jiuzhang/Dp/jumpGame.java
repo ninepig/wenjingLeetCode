@@ -10,12 +10,12 @@ public class jumpGame {
             return false;
         }
         boolean[] can = new boolean[A.length];
-        //第一步肯定是可以跳到第二步的 要不这个题目就没有意义了，因为A[0]要是等于0 就没有了
+        //can present if it can be jump to index  ith from A.
         can[0] = true;
         for(int i = 1 ; i<A.length;i++){
             for(int j = 0 ; j<i;j++){
                 if(can[j]==true&&j+A[j]>=i){
-                    can[j]=true;
+                    can[i]=true;
                     break;
                 }
             }
