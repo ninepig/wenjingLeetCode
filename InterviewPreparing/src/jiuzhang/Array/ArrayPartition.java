@@ -1,0 +1,23 @@
+package jiuzhang.Array;
+
+import java.util.Arrays;
+
+/**
+ * Created by yangw on 2017/8/20.
+ */
+public class ArrayPartition {
+    public int arrayPairSum(int[] nums) {
+        if(nums==null||nums.length==0){
+            return 0;
+        }
+        Arrays.sort(nums);
+        int result = 0;
+
+        for(int i = 0 ; i<nums.length;i=i+2){
+            result += nums[i];
+        }
+
+        return result;
+
+    }
+}

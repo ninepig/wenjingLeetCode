@@ -1,4 +1,4 @@
-package jiuzhang.linkedList;
+package jiuzhang.searchgraph;
 
 import java.util.HashMap;
 
@@ -65,40 +65,73 @@ public class copyListWithRandomPointer {
 //
 //    }
 
-    public RandomListNode copyRandomList(RandomListNode head) {
-        if(head==null){
-            return head;
-        }
-        RandomListNode dummy = new RandomListNode(0);
-        RandomListNode pre = dummy,newHead;
-        HashMap<RandomListNode,RandomListNode> maps = new HashMap<>();
-
-        while (head!=null){
-
-            if(maps.containsKey(head)){
-                newHead = maps.get(head);
-            }else {
-                newHead = new RandomListNode(head.label);
-                maps.put(head,newHead);
-            }
-
-            if(head.random!=null){
-                if(maps.containsKey(head.random)){
-                    newHead.random = maps.get(head.random);
-                }else {
-                    newHead.random = new RandomListNode(head.random.label);
-                    maps.put(head.random,newHead.random);
-                }
-            }
-
-            pre.next = newHead;
-            pre = newHead;
-            head = head.next;
-
-        }
-
-        return dummy.next;
+//    public RandomListNode copyRandomList(RandomListNode head) {
+//        if(head==null){
+//            return head;
+//        }
+//        RandomListNode dummy = new RandomListNode(0);
+//        RandomListNode pre = dummy,newHead;
+//        HashMap<RandomListNode,RandomListNode> maps = new HashMap<>();
+//
+//        while (head!=null){
+//
+//            if(maps.containsKey(head)){
+//                newHead = maps.get(head);
+//            }else {
+//                newHead = new RandomListNode(head.label);
+//                maps.put(head,newHead);
+//            }
+//
+//            if(head.random!=null){
+//                if(maps.containsKey(head.random)){
+//                    newHead.random = maps.get(head.random);
+//                }else {
+//                    newHead.random = new RandomListNode(head.random.label);
+//                    maps.put(head.random,newHead.random);
+//                }
+//            }
+//
+//            pre.next = newHead;
+//            pre = newHead;
+//            head = head.next;
+//
+//        }
+//
+//        return dummy.next;
+//    }
+public RandomListNode copyRandomList(RandomListNode head) {
+    if(head==null){
+        return head;
     }
+    RandomListNode dummy = new RandomListNode(0);
+    RandomListNode pre = dummy,newNode;
+    HashMap<RandomListNode,RandomListNode> maps = new HashMap<>();
+
+    while (head!=null){
+        if (!maps.containsKey(head)){
+            newNode = new RandomListNode(head.label);
+            maps.put(head,newNode);
+        }else {
+            newNode = maps.get(head);
+        }
+
+        if(head.random!=null){
+            if (!maps.containsKey(head.random)){
+                newNode.random = new RandomListNode(head.random.label);
+                maps.put(head.random,newNode.random);
+            }else {
+                newNode.random = maps.get(head.random);
+            }
+        }
+
+        pre.next = newNode;
+        pre = newNode;
+        head = head.next;
+    }
+
+    return dummy.next;
+
+}
       class RandomListNode {
       int label;
      RandomListNode next, random;

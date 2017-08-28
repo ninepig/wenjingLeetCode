@@ -137,6 +137,44 @@ public UndirectedGraphNode cloneGraph(UndirectedGraphNode node){
 
         return maps.get(node);
 
-}
+//}
+
+    public UndirectedGraphNode cloneGraph2(UndirectedGraphNode node){
+        if(node == null ){
+            return node;
+        }
+
+        ArrayList<UndirectedGraphNode> queue = new ArrayList<>();
+        HashMap<UndirectedGraphNode,UndirectedGraphNode> maps = new HashMap<>();
+        queue.add(node);
+        maps.put(node,new UndirectedGraphNode(node.label));
+
+        int start = 0 ;
+        while (start<queue.size()){
+            UndirectedGraphNode currentNode = queue.get(start);
+            start++;
+
+            for(int i = 0;i<currentNode.neighbors.size();i++){
+                UndirectedGraphNode currentNeighbour = currentNode.neighbors.get(i);
+                if(!maps.containsKey(currentNeighbour)){
+                    maps.put(currentNeighbour,new UndirectedGraphNode(currentNeighbour.label));
+                    queue.add(currentNeighbour);
+                }
+            }
+        }
+
+        //copy graph
+
+        for(int i = 0; i<queue.size();i++){
+            UndirectedGraphNode newNode = queue.get(i);
+            for(int j = 0 ; j< newNode.neighbors.size();j++){
+                newNode.neighbors.add(maps.get(queue.get(i).neighbors.get(j)));
+            }
+        }
+
+        return  maps.get(node);
+
+    }
+
 }
 

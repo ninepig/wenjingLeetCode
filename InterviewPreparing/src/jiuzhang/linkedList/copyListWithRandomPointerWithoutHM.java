@@ -1,5 +1,7 @@
 package jiuzhang.linkedList;
 
+import jiuzhang.searchgraph.copyListWithRandomPointer;
+
 /**
  * Created by yangw on 2017/8/6.
  */
