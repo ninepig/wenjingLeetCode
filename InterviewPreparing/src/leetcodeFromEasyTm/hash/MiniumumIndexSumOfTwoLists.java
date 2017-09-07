@@ -1,4 +1,4 @@
-package jiuzhang.Array;
+package leetcodeFromEasyTm.hash;
 
 import java.util.ArrayList;
 import java.util.HashMap;

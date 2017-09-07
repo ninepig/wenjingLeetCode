@@ -1,4 +1,4 @@
-package leetcodeFromEasyTm.hashMap;
+package leetcodeFromEasyTm.hash;
 
 import java.util.HashMap;
 

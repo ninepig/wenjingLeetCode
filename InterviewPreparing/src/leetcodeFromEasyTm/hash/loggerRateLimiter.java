@@ -1,7 +1,6 @@
-package leetcodeFromEasyTm.hashMap;
+package leetcodeFromEasyTm.hash;
 
 import java.util.HashMap;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by yangw on 2017/8/31.
